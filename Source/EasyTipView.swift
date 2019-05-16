@@ -385,14 +385,12 @@ open class EasyTipView: UIView {
     
     // MARK: - Rotation support -
     
-    @objc public func update(_ animate: Bool = true) {
+    @objc public func update() {
         guard let sview = superview
             , presentingView != nil else { return }
         
-        UIView.animate(withDuration: animate ? 0.3 : 0.0) {
-            self.arrange(withinSuperview: sview)
-            self.setNeedsDisplay()
-        }
+        self.arrange(withinSuperview: sview)
+        self.setNeedsDisplay()
     }
     
     // MARK: - Private methods -
