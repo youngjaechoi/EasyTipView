@@ -289,6 +289,7 @@ open class EasyTipView: UIView {
     fileprivate var arrowTip = CGPoint.zero
     fileprivate(set) open var preferences: Preferences
     private let content: Content
+    private var orgArrowPosition: ArrowPosition
     
     // MARK: - Lazy variables -
     
@@ -348,7 +349,7 @@ open class EasyTipView: UIView {
         self.content = content
         self.preferences = preferences
         self.delegate = delegate
-        
+        self.orgArrowPosition = preferences.Drawing.arrowPosition
         super.init(frame: CGRect.zero)
         
         self.backgroundColor = UIColor.clear
@@ -380,6 +381,7 @@ open class EasyTipView: UIView {
         guard let sview = superview
             , presentingView != nil else { return }
         
+        preferences.drawing.arrowPosition = orgArrowPosition
         self.arrange(withinSuperview: sview)
         self.setNeedsDisplay()
     }
