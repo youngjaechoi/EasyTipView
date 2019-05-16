@@ -185,6 +185,7 @@ public extension EasyTipView {
 extension EasyTipView: UIGestureRecognizerDelegate {
 
     open override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        guard let _ = gestureRecognizer as? UITapGestureRecognizer else { return true }
         return preferences.animating.dismissOnTap
     }
 }
