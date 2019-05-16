@@ -368,7 +368,7 @@ open class EasyTipView: UIView {
         let notificationName = NSNotification.Name.UIDeviceOrientationDidChange
         #endif
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handleRotation), name: notificationName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(update), name: notificationName, object: nil)
     }
     
     deinit
@@ -385,11 +385,11 @@ open class EasyTipView: UIView {
     
     // MARK: - Rotation support -
     
-    @objc func handleRotation() {
+    @objc func update(_ animate: Bool = true) {
         guard let sview = superview
             , presentingView != nil else { return }
         
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: animate ? 0.3 : 0.0) {
             self.arrange(withinSuperview: sview)
             self.setNeedsDisplay()
         }
