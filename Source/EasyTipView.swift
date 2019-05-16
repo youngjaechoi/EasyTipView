@@ -25,6 +25,7 @@ import UIKit
 
 public protocol EasyTipViewDelegate : class {
     func easyTipViewDidDismiss(_ tipView : EasyTipView)
+    func easyTipViewTapped(_ tipView : EasyTipView)
 }
 
 
@@ -497,6 +498,8 @@ open class EasyTipView: UIView {
         if preferences.animating.dismissOnTap {
             dismiss()
         }
+        
+        delegate?.easyTipViewTapped(self)
     }
     
     // MARK:- Drawing -
