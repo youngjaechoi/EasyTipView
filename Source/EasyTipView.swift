@@ -349,7 +349,7 @@ open class EasyTipView: UIView {
         self.content = content
         self.preferences = preferences
         self.delegate = delegate
-        self.orgArrowPosition = preferences.Drawing.arrowPosition
+        self.orgArrowPosition = preferences.drawing.arrowPosition
         super.init(frame: CGRect.zero)
         
         self.backgroundColor = UIColor.clear
