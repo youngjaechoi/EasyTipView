@@ -385,7 +385,7 @@ open class EasyTipView: UIView {
     
     // MARK: - Rotation support -
     
-    @objc func update(_ animate: Bool = true) {
+    @objc public func update(_ animate: Bool = true) {
         guard let sview = superview
             , presentingView != nil else { return }
         
