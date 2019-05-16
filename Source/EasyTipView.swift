@@ -442,7 +442,7 @@ open class EasyTipView: UIView {
         return !frame.intersects(forRefViewFrame)
     }
     
-    fileprivate func arrange(withinSuperview superview: UIView) {
+    func arrange(withinSuperview superview: UIView) {
         
         var position = preferences.drawing.arrowPosition
         
